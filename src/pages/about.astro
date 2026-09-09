@@ -1,0 +1,111 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import SpineProgress from '../components/SpineProgress.astro';
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Meet the Doctors | Frey Clinic of Chiropractic",
+  "description": "Meet Dr. Timothy Frey and Dr. Christopher Peters, chiropractors serving Napoleon, OH and the surrounding Henry County communities.",
+  "url": "https://www.freychiropractic.com/about/",
+  "isPartOf": { "@id": "https://www.freychiropractic.com/#website" },
+  "mainEntity": [
+    {
+      "@type": "Person",
+      "name": "Dr. Timothy Frey",
+      "jobTitle": "Doctor of Chiropractic",
+      "worksFor": { "@id": "https://www.freychiropractic.com/#business" },
+      "description": "Dr. Timothy Frey is a Doctor of Chiropractic serving the Napoleon, OH community. With years of experience in gentle, effective chiropractic care, Dr. Frey is committed to helping patients achieve optimal health."
+    },
+    {
+      "@type": "Person",
+      "name": "Dr. Christopher Peters",
+      "jobTitle": "Doctor of Chiropractic",
+      "worksFor": { "@id": "https://www.freychiropractic.com/#business" },
+      "description": "Dr. Christopher Peters is a Doctor of Chiropractic at Frey Clinic of Chiropractic. He specializes in helping families in Napoleon, OH achieve better health through chiropractic care and acupuncture."
+    }
+  ]
+};
+---
+
+<BaseLayout
+  title="Meet the Doctors"
+  description="Meet Dr. Timothy Frey and Dr. Christopher Peters, chiropractors serving Napoleon, OH and the surrounding Henry County communities."
+  schema={schema}
+>
+  <Header slot="header" />
+
+  <section class="page-header">
+    <div class="container">
+      <h1 class="reveal">Meet the Doctors</h1>
+      <p class="reveal reveal-delay-1" style="max-width:36rem;">
+        The team at Frey Clinic of Chiropractic is dedicated to helping you and your family achieve optimal health through gentle, effective care.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container grid grid--sidebar">
+      <div class="reveal">
+        <img
+          src="/src/assets/images/team.webp"
+          alt="Dr. Timothy Frey and Dr. Christopher Peters at Frey Clinic of Chiropractic"
+          width="703"
+          height="600"
+          loading="lazy"
+          style="width:100%; height:auto; filter:saturate(0.85);"
+        />
+      </div>
+      <div class="reveal reveal-delay-1">
+        <h2>Dr. Timothy Frey, DC</h2>
+        <hr class="rule rule--accent" style="margin-block:var(--sp-4);" />
+        <p>
+          Dr. Timothy Frey has been serving the Napoleon, OH community for years, providing gentle and effective chiropractic care. He believes that chiropractic is one of the most powerful healthcare professions, built on the understanding that the body has an innate ability to heal itself when the spine and nervous system are properly aligned.
+        </p>
+        <p>
+          Dr. Frey focuses on whole-family care — from pediatrics through the golden years — and is committed to helping every patient reach their health goals. His approach emphasizes safe, gentle adjustments tailored to each individual's needs.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule container" />
+
+  <section class="section">
+    <div class="container grid grid--sidebar">
+      <div class="reveal" style="order:2;">
+        <img
+          src="/src/assets/images/team-thankyou.webp"
+          alt="The team at Frey Clinic of Chiropractic"
+          width="500"
+          height="372"
+          loading="lazy"
+          style="width:100%; height:auto; filter:saturate(0.85);"
+        />
+      </div>
+      <div class="reveal reveal-delay-1" style="order:1;">
+        <h2>Dr. Christopher Peters, DC</h2>
+        <hr class="rule rule--accent" style="margin-block:var(--sp-4);" />
+        <p>
+          Dr. Christopher Peters brings a passion for holistic health to Frey Clinic of Chiropractic. In addition to chiropractic adjustments, Dr. Peters offers acupuncture services, providing patients with complementary approaches to pain management and wellness.
+        </p>
+        <p>
+          Dr. Peters is dedicated to creating a comfortable, welcoming environment where patients feel at ease. He works closely with each patient to develop personalized treatment plans that address their specific concerns and health objectives.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="container reveal">
+      <h2>Ready to start your journey to better health?</h2>
+      <p>We welcome new patients and look forward to meeting you.</p>
+      <a href="/schedule/" class="btn">Schedule an Appointment</a>
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+  <SpineProgress slot="spine" />
+</BaseLayout>

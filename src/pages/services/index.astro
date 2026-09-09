@@ -1,0 +1,58 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import SpineProgress from '../../components/SpineProgress.astro';
+
+const services = [
+  { name: 'Chiropractic Care', href: '/services/chiropractic-care/', desc: 'Gentle, effective spinal adjustments to restore alignment and support your body\'s natural healing.' },
+  { name: 'Acupuncture', href: '/services/acupuncture/', desc: 'Traditional acupuncture to manage pain, reduce stress, and promote whole-body wellness.' },
+  { name: 'Massage Therapy', href: '/services/massage-therapy/', desc: 'Therapeutic massage to relieve tension, improve circulation, and complement chiropractic care.' },
+  { name: 'ChiroThin Weight Loss', href: '/services/weight-loss/', desc: 'A doctor-supervised weight loss program designed to help you reach your health goals.' },
+  { name: 'Wellness Care', href: '/services/wellness-care/', desc: 'Ongoing chiropractic maintenance to keep your body functioning at its best.' },
+  { name: 'Pediatric Chiropractic', href: '/services/chiropractic-care-kids/', desc: 'Gentle, age-appropriate chiropractic care for children of all ages.' },
+  { name: 'Prenatal Chiropractic', href: '/services/prenatal-chiropractic/', desc: 'Safe, supportive chiropractic care throughout pregnancy to help with comfort and alignment.' },
+];
+---
+
+<BaseLayout
+  title="Services"
+  description="Frey Clinic of Chiropractic offers chiropractic adjustments, acupuncture, massage therapy, weight loss programs, and wellness care in Napoleon, OH."
+>
+  <Header slot="header" />
+
+  <section class="page-header">
+    <div class="container">
+      <h1 class="reveal">Our Services</h1>
+      <p class="reveal reveal-delay-1" style="max-width:36rem;">
+        We offer a range of services to support your health and well-being.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="reveal-stagger">
+        {services.map(s => (
+          <div style="padding-block:var(--sp-6); border-bottom:1px solid var(--rule);">
+            <a href={s.href} style="display:block;">
+              <h2 style="font-size:var(--text-2xl); margin-bottom:var(--sp-2);">{s.name}</h2>
+              <p style="color:var(--ink-light); margin:0;">{s.desc}</p>
+            </a>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="container reveal">
+      <h2>Questions about our services?</h2>
+      <p>We're happy to discuss which approach is right for you.</p>
+      <a href="/contact/" class="btn">Contact Us</a>
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+  <SpineProgress slot="spine" />
+</BaseLayout>

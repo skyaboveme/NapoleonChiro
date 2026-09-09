@@ -1,0 +1,28 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<BaseLayout
+  title="Page Not Found"
+  description="The page you're looking for doesn't exist. Return to Frey Clinic of Chiropractic."
+>
+  <Header slot="header" />
+
+  <section class="section" style="min-height:50vh; display:flex; align-items:center;">
+    <div class="container" style="text-align:center;">
+      <p style="font-size:var(--text-5xl); font-family:var(--font-heading); color:var(--rule); margin-bottom:var(--sp-4);">404</p>
+      <h1 style="font-size:var(--text-3xl); margin-bottom:var(--sp-4);">Page not found</h1>
+      <p style="max-width:28rem; margin-inline:auto; margin-bottom:var(--sp-6);">
+        The page you're looking for doesn't exist or has been moved. Let's get you back on track.
+      </p>
+      <div style="display:flex; gap:var(--sp-4); justify-content:center; flex-wrap:wrap;">
+        <a href="/" class="btn">Go Home</a>
+        <a href="/contact/" class="btn btn--outline">Contact Us</a>
+      </div>
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+</BaseLayout>

@@ -1,0 +1,252 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import SpineProgress from '../components/SpineProgress.astro';
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": ["Chiropractor", "MedicalBusiness"],
+      "@id": "https://www.freychiropractic.com/#business",
+      "name": "Frey Clinic of Chiropractic",
+      "url": "https://www.freychiropractic.com",
+      "telephone": "+14195927966",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "390 Independence Dr",
+        "addressLocality": "Napoleon",
+        "addressRegion": "OH",
+        "postalCode": "43545",
+        "addressCountry": "US"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 41.3867,
+        "longitude": -84.1276
+      },
+      "openingHoursSpecification": [
+        { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday"], "opens": "08:45", "closes": "11:30" },
+        { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday"], "opens": "13:30", "closes": "17:30" }
+      ],
+      "sameAs": [
+        "https://www.facebook.com/people/Frey-Clinic-of-Chiropractic-Doctors-Tim-and-Nathan-Frey-and-Chris-Peters/100057877410735/"
+      ],
+      "image": "https://www.freychiropractic.com/src/assets/images/team.webp",
+      "priceRange": "$$",
+      "medicalSpecialty": "Chiropractic",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Chiropractic Services",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Chiropractic Adjustment" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Acupuncture" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Massage Therapy" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "ChiroThin Weight Loss" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Prenatal Chiropractic" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Pediatric Chiropractic" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Wellness Care" } }
+        ]
+      },
+      "employee": [
+        { "@type": "Person", "name": "Dr. Timothy Frey", "jobTitle": "Doctor of Chiropractic" },
+        { "@type": "Person", "name": "Dr. Christopher Peters", "jobTitle": "Doctor of Chiropractic" }
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.freychiropractic.com/#website",
+      "url": "https://www.freychiropractic.com",
+      "name": "Frey Clinic of Chiropractic",
+      "description": "Chiropractor in Napoleon OH",
+      "inLanguage": "en-US"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://www.freychiropractic.com/",
+      "url": "https://www.freychiropractic.com/",
+      "name": "Frey Clinic of Chiropractic | Chiropractor Napoleon OH",
+      "isPartOf": { "@id": "https://www.freychiropractic.com/#website" },
+      "about": { "@id": "https://www.freychiropractic.com/#business" },
+      "inLanguage": "en-US"
+    }
+  ]
+};
+
+const services = [
+  { name: 'Chiropractic Care', href: '/services/chiropractic-care/' },
+  { name: 'Acupuncture', href: '/services/acupuncture/' },
+  { name: 'Massage Therapy', href: '/services/massage-therapy/' },
+  { name: 'ChiroThin Weight Loss', href: '/services/weight-loss/' },
+  { name: 'Wellness Care', href: '/services/wellness-care/' },
+  { name: 'Pediatric Chiropractic', href: '/services/chiropractic-care-kids/' },
+  { name: 'Prenatal Chiropractic', href: '/services/prenatal-chiropractic/' },
+];
+
+const values = [
+  { heading: 'All ages welcome', text: 'Our family chiropractors welcome you with open arms for all of life\'s changes, from pediatrics to your golden years.' },
+  { heading: 'Enjoy the experience', text: 'Patients who come to our office feel comfortable. We help families reach their goals toward better health.' },
+  { heading: 'Discover care', text: 'The team at Frey Clinic of Chiropractic is available to help you with any questions you may have about care for your family.' },
+];
+---
+
+<BaseLayout
+  title="Home"
+  description="Frey Clinic of Chiropractic provides gentle, safe, and effective chiropractic care, acupuncture, and massage therapy in Napoleon, OH. Schedule your appointment today."
+  schema={schema}
+>
+  <Header slot="header" />
+
+  <!-- Hero -->
+  <section class="hero" data-spine-section="0">
+    <div class="hero__bg">
+      <img src="/src/assets/images/team.webp" alt="Dr. Timothy Frey and Dr. Christopher Peters at Frey Clinic of Chiropractic in Napoleon, Ohio" width="703" height="600" />
+    </div>
+    <div class="hero__content">
+      <h1 class="reveal">
+        Get Healthy.<br />Stay Healthy.
+      </h1>
+      <p class="reveal reveal-delay-1">
+        Gentle, safe, and effective chiropractic care for your whole family in Napoleon, Ohio.
+      </p>
+      <a href="/schedule/" class="btn reveal reveal-delay-2">Schedule an Appointment</a>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="section" data-spine-section="1">
+    <div class="container">
+      <h2 class="reveal">What we do</h2>
+      <hr class="rule rule--accent" />
+      <div class="service-list reveal-stagger">
+        {services.map(s => (
+          <div class="service-item">
+            <a href={s.href}>{s.name}</a>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule container" />
+
+  <!-- About intro -->
+  <section class="section" data-spine-section="2">
+    <div class="container grid grid--sidebar">
+      <div class="reveal">
+        <img
+          src="/src/assets/images/team.webp"
+          alt="Dr. Timothy Frey and Dr. Christopher Peters"
+          width="703"
+          height="600"
+          loading="lazy"
+          style="width:100%; height:auto; filter:saturate(0.85);"
+        />
+      </div>
+      <div class="reveal reveal-delay-1">
+        <h2>Chiropractor Napoleon OH</h2>
+        <h3 style="color:var(--earth); font-size:var(--text-xl); margin-bottom:var(--sp-5);">Frey Clinic of Chiropractic</h3>
+        <p>
+          Welcome to Frey Clinic of Chiropractic located in Napoleon, OH. Chiropractic is one of the most amazing healthcare professions, but very few people understand what it's all about. We're here to help you gain a basic understanding of how our Napoleon, OH chiropractors can help you and your family.
+        </p>
+        <p><strong>Now offering <a href="/services/acupuncture/" class="link-draw">acupuncture</a>.</strong></p>
+        <div style="display:flex; gap:var(--sp-4); flex-wrap:wrap; margin-top:var(--sp-6);">
+          <a href="/about/" class="btn">Meet Our Team</a>
+          <a href="/testimonials/" class="btn btn--outline">Read Testimonials</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule container" />
+
+  <!-- Values -->
+  <section class="section" data-spine-section="3">
+    <div class="container grid grid--3 reveal-stagger">
+      {values.map(v => (
+        <div>
+          <hr class="rule rule--accent" style="margin-bottom:var(--sp-5);" />
+          <h3 style="font-size:var(--text-xl); text-transform:lowercase;">{v.heading}</h3>
+          <p style="margin-top:var(--sp-3);">{v.text}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Conditions preview -->
+  <section class="section" style="background-color:var(--ink); color:var(--surface);" data-spine-section="4">
+    <div class="container">
+      <h2 class="reveal" style="color:var(--surface);">Conditions we treat</h2>
+      <hr class="rule rule--accent" />
+      <div class="grid grid--3 reveal-stagger" style="margin-top:var(--sp-6);">
+        {[
+          { name: 'Back Pain', href: '/conditions/back-pain/' },
+          { name: 'Neck Pain', href: '/conditions/neck-pain/' },
+          { name: 'Headaches & Migraines', href: '/conditions/headaches-migraines/' },
+          { name: 'Sciatica', href: '/conditions/sciatica/' },
+          { name: 'Disc Injury', href: '/conditions/disc-injury/' },
+          { name: 'Shoulder Pain', href: '/conditions/shoulder-pain/' },
+        ].map(c => (
+          <a href={c.href} class="link-draw" style="font-family:var(--font-heading); font-size:var(--text-xl); color:var(--rule-light); padding-block:var(--sp-3); display:block; border-bottom:1px solid rgba(212,207,198,0.15);">
+            {c.name}
+          </a>
+        ))}
+      </div>
+      <p style="margin-top:var(--sp-8); color:var(--rule-light);">
+        <a href="/contact/" style="color:var(--accent);">Contact us</a> to discuss how chiropractic care can help your specific condition.
+      </p>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-band" data-spine-section="5">
+    <div class="container reveal">
+      <h2>There is no risk to see what we can do for you</h2>
+      <p>Let us help you turn your health goals into reality.</p>
+      <a href="/schedule/" class="btn">Request an Appointment</a>
+    </div>
+  </section>
+
+  <!-- Hours & Location -->
+  <section class="section" data-spine-section="6">
+    <div class="container grid grid--2">
+      <div class="reveal">
+        <h2>Visit us</h2>
+        <hr class="rule rule--accent" style="margin-bottom:var(--sp-5);" />
+        <div class="info-block">
+          <p class="info-block__label">Address</p>
+          <p class="info-block__value">
+            390 Independence Dr<br />Napoleon, OH 43545<br />
+            <a href="https://maps.app.goo.gl/QUrM6KDh1Ek4TdLj7/" target="_blank" rel="noopener">Get Directions</a>
+          </p>
+        </div>
+        <div class="info-block">
+          <p class="info-block__label">Phone</p>
+          <p class="info-block__value"><a href="tel:4195927966">(419) 592-7966</a></p>
+        </div>
+        <div class="info-block">
+          <p class="info-block__label">Hours</p>
+          <p class="info-block__value" style="line-height:2;">
+            Monday – Thursday: 8:45am – 11:30am, 1:30pm – 5:30pm<br />
+            Friday – Sunday: Closed
+          </p>
+        </div>
+      </div>
+      <div class="reveal reveal-delay-1">
+        <div class="map-container">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3019.5!2d-84.1276!3d41.3867!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDHCsDIzJzEyLjEiTiA4NMKwMDcnMzkuNCJX!5e0!3m2!1sen!2sus!4v1!5m2!1sen!2sus"
+            title="Frey Clinic of Chiropractic location"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+  <SpineProgress slot="spine" />
+</BaseLayout>

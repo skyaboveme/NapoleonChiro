@@ -1,0 +1,87 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<BaseLayout
+  title="Schedule an Appointment"
+  description="Schedule your chiropractic appointment at Frey Clinic of Chiropractic in Napoleon, OH. Call (419) 592-7966 or use our online form."
+>
+  <Header slot="header" />
+
+  <section class="page-header">
+    <div class="container">
+      <h1 class="reveal">Schedule an Appointment</h1>
+      <p class="reveal reveal-delay-1" style="max-width:36rem;">
+        Fill out the form below and we'll get back to you to confirm your appointment, or call us directly at <a href="tel:4195927966" style="font-weight:600;">(419) 592-7966</a>.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container" style="max-width:36rem;">
+      <form class="reveal" action="https://formsubmit.co/office@freychiropractic.com" method="POST">
+        <!-- Anti-spam -->
+        <input type="hidden" name="_captcha" value="false" />
+        <input type="hidden" name="_subject" value="New Appointment Request — FreyChiropractic.com" />
+        <input type="hidden" name="_next" value="https://www.freychiropractic.com/contact/" />
+        <input type="text" name="_honey" style="display:none;" />
+
+        <div class="form-group">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" name="name" required autocomplete="name" />
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required autocomplete="email" />
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Phone</label>
+          <input type="tel" id="phone" name="phone" required autocomplete="tel" />
+        </div>
+
+        <div class="form-group">
+          <label for="preferred-date">Preferred Date</label>
+          <input type="date" id="preferred-date" name="preferred_date" />
+        </div>
+
+        <div class="form-group">
+          <label for="preferred-time">Preferred Time</label>
+          <select id="preferred-time" name="preferred_time">
+            <option value="">Select a time</option>
+            <option value="morning">Morning (8:45am – 11:30am)</option>
+            <option value="afternoon">Afternoon (1:30pm – 5:30pm)</option>
+            <option value="either">Either</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="reason">Reason for Visit</label>
+          <textarea id="reason" name="reason" placeholder="Tell us briefly what's going on."></textarea>
+        </div>
+
+        <div class="form-group">
+          <label>
+            <input type="checkbox" name="new_patient" value="yes" style="width:auto; margin-right:var(--sp-2);" />
+            I am a new patient
+          </label>
+        </div>
+
+        <button type="submit" class="btn" style="width:100%; text-align:center;">Submit Request</button>
+      </form>
+
+      <hr class="rule" />
+
+      <div class="reveal" style="text-align:center;">
+        <p style="font-family:var(--font-heading); font-size:var(--text-xl); color:var(--ink); margin-bottom:var(--sp-3);">Prefer to call?</p>
+        <a href="tel:4195927966" style="font-size:var(--text-2xl); font-family:var(--font-heading); color:var(--accent);">(419) 592-7966</a>
+        <p style="margin-top:var(--sp-3); font-size:var(--text-sm);">Monday – Thursday, 8:45am – 5:30pm</p>
+      </div>
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+</BaseLayout>

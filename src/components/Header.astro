@@ -1,0 +1,258 @@
+---
+const currentPath = Astro.url.pathname;
+
+const navItems = [
+  { label: 'Home', href: '/' },
+  { label: 'About', href: '/about/' },
+  {
+    label: 'Services', href: '/services/',
+    children: [
+      { label: 'Chiropractic Care', href: '/services/chiropractic-care/' },
+      { label: 'Acupuncture', href: '/services/acupuncture/' },
+      { label: 'Massage Therapy', href: '/services/massage-therapy/' },
+      { label: 'Weight Loss', href: '/services/weight-loss/' },
+      { label: 'Wellness Care', href: '/services/wellness-care/' },
+      { label: 'Pediatric', href: '/services/chiropractic-care-kids/' },
+      { label: 'Prenatal', href: '/services/prenatal-chiropractic/' },
+    ]
+  },
+  {
+    label: 'Conditions', href: '/conditions/',
+    children: [
+      { label: 'Back Pain', href: '/conditions/back-pain/' },
+      { label: 'Neck Pain', href: '/conditions/neck-pain/' },
+      { label: 'Headaches & Migraines', href: '/conditions/headaches-migraines/' },
+      { label: 'Sciatica', href: '/conditions/sciatica/' },
+      { label: 'Scoliosis', href: '/conditions/scoliosis/' },
+      { label: 'Disc Injury', href: '/conditions/disc-injury/' },
+      { label: 'Whiplash', href: '/conditions/whiplash/' },
+      { label: 'Shoulder Pain', href: '/conditions/shoulder-pain/' },
+    ]
+  },
+  { label: 'Testimonials', href: '/testimonials/' },
+  { label: 'Contact', href: '/contact/' },
+];
+---
+
+<header class="site-header" id="site-header">
+  <div class="container site-header__inner">
+    <a href="/" class="site-header__logo" aria-label="Frey Clinic of Chiropractic – Home">
+      <img src="/src/assets/images/logo-header.webp" alt="Frey Clinic of Chiropractic" width="270" height="150" loading="eager" />
+    </a>
+
+    <nav class="site-nav" aria-label="Main navigation">
+      <ul class="site-nav__list">
+        {navItems.map(item => (
+          <li class={`site-nav__item ${item.children ? 'has-dropdown' : ''}`}>
+            <a href={item.href} class={currentPath === item.href ? 'is-active' : ''}>{item.label}</a>
+            {item.children && (
+              <ul class="site-nav__dropdown">
+                {item.children.map(child => (
+                  <li><a href={child.href}>{child.label}</a></li>
+                ))}
+              </ul>
+            )}
+          </li>
+        ))}
+      </ul>
+    </nav>
+
+    <a href="tel:4195927966" class="site-header__phone">(419) 592-7966</a>
+
+    <button class="site-header__burger" id="nav-toggle" aria-label="Open menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</header>
+
+<!-- Mobile nav overlay -->
+<div class="nav-mobile" id="nav-mobile" aria-hidden="true">
+  <button class="nav-mobile__close" id="nav-close" aria-label="Close menu">&times;</button>
+  {navItems.map(item => (
+    <>
+      <a href={item.href}>{item.label}</a>
+      {item.children && (
+        <div class="nav-mobile__sub">
+          {item.children.map(child => (
+            <a href={child.href}>{child.label}</a>
+          ))}
+        </div>
+      )}
+    </>
+  ))}
+  <a href="tel:4195927966" style="margin-top:auto; color:var(--accent);">(419) 592-7966</a>
+</div>
+
+<script is:inline>
+  (function () {
+    var toggle = document.getElementById('nav-toggle');
+    var close = document.getElementById('nav-close');
+    var nav = document.getElementById('nav-mobile');
+    var header = document.getElementById('site-header');
+
+    if (toggle && nav) {
+      toggle.addEventListener('click', function () {
+        nav.classList.add('is-open');
+        nav.setAttribute('aria-hidden', 'false');
+        toggle.setAttribute('aria-expanded', 'true');
+        document.body.style.overflow = 'hidden';
+      });
+    }
+    if (close && nav) {
+      close.addEventListener('click', function () {
+        nav.classList.remove('is-open');
+        nav.setAttribute('aria-hidden', 'true');
+        toggle.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      });
+    }
+
+    // Sticky header
+    var lastScroll = 0;
+    window.addEventListener('scroll', function () {
+      var scrollY = window.scrollY;
+      if (scrollY > 80) {
+        header.classList.add('is-sticky');
+      } else {
+        header.classList.remove('is-sticky');
+      }
+      lastScroll = scrollY;
+    }, { passive: true });
+  })();
+</script>
+
+<style>
+  .site-header {
+    position: relative;
+    z-index: 500;
+    background-color: var(--surface);
+    border-bottom: 1px solid var(--rule);
+    transition: box-shadow var(--dur-fast) var(--ease-out);
+  }
+
+  .site-header.is-sticky {
+    position: sticky;
+    top: 0;
+  }
+
+  .site-header__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--sp-5);
+    padding-block: var(--sp-3);
+  }
+
+  .site-header__logo img {
+    height: 48px;
+    width: auto;
+  }
+
+  .site-header__phone {
+    font-weight: 600;
+    font-size: var(--text-sm);
+    color: var(--ink);
+    white-space: nowrap;
+  }
+
+  .site-header__phone:hover {
+    color: var(--accent);
+  }
+
+  /* Desktop nav */
+  .site-nav {
+    display: none;
+  }
+
+  @media (min-width: 64rem) {
+    .site-nav {
+      display: block;
+    }
+    .site-header__burger {
+      display: none;
+    }
+  }
+
+  .site-nav__list {
+    display: flex;
+    gap: var(--sp-1);
+  }
+
+  .site-nav__item {
+    position: relative;
+  }
+
+  .site-nav__item > a {
+    display: block;
+    padding: var(--sp-2) var(--sp-3);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--ink);
+    transition: color var(--dur-fast) var(--ease-out);
+  }
+
+  .site-nav__item > a:hover,
+  .site-nav__item > a.is-active {
+    color: var(--accent);
+  }
+
+  /* Dropdown */
+  .site-nav__dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: var(--white);
+    border: 1px solid var(--rule);
+    min-width: 14rem;
+    padding: var(--sp-2) 0;
+    z-index: 600;
+  }
+
+  .has-dropdown:hover .site-nav__dropdown {
+    display: block;
+  }
+
+  .site-nav__dropdown li a {
+    display: block;
+    padding: var(--sp-2) var(--sp-4);
+    font-size: var(--text-sm);
+    color: var(--ink-light);
+    transition: color var(--dur-fast), background-color var(--dur-fast);
+  }
+
+  .site-nav__dropdown li a:hover {
+    color: var(--accent);
+    background-color: var(--surface);
+  }
+
+  /* Burger */
+  .site-header__burger {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 28px;
+    height: 28px;
+    padding: 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  .site-header__burger span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: var(--ink);
+    transition: transform var(--dur-fast) var(--ease-out);
+  }
+
+  @media (min-width: 64rem) {
+    .site-header__burger {
+      display: none;
+    }
+  }
+</style>

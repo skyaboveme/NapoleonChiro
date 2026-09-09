@@ -1,0 +1,62 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import SpineProgress from '../components/SpineProgress.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  schemaType?: string;
+}
+
+const { title, description, schemaType = 'Service' } = Astro.props;
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": `${title} | Frey Clinic of Chiropractic`,
+  "description": description,
+  "url": `https://www.freychiropractic.com${Astro.url.pathname}`,
+  "isPartOf": { "@id": "https://www.freychiropractic.com/#website" },
+  "mainEntity": {
+    "@type": schemaType,
+    "name": title,
+    "provider": { "@id": "https://www.freychiropractic.com/#business" },
+    "areaServed": {
+      "@type": "City",
+      "name": "Napoleon",
+      "containedInPlace": { "@type": "State", "name": "Ohio" }
+    }
+  }
+};
+---
+
+<BaseLayout title={title} description={description} schema={schema}>
+  <Header slot="header" />
+
+  <section class="page-header">
+    <div class="container">
+      <h1 class="reveal">{title}</h1>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container" style="max-width:48rem;">
+      <div class="reveal">
+        <slot />
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="container reveal">
+      <h2>Take the next step toward better health</h2>
+      <p>Schedule your appointment at Frey Clinic of Chiropractic today.</p>
+      <a href="/schedule/" class="btn">Schedule an Appointment</a>
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+  <SpineProgress slot="spine" />
+</BaseLayout>

@@ -1,0 +1,66 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import SpineProgress from '../components/SpineProgress.astro';
+
+const testimonials = [
+  { text: "I have been going to Frey Clinic for years. The doctors are amazing and truly care about their patients. I always leave feeling so much better than when I walked in.", name: "Sarah M." },
+  { text: "After my car accident I was in a lot of pain. Dr. Frey and his team got me back to feeling like myself again. I can't recommend them enough.", name: "Mike T." },
+  { text: "I was skeptical about chiropractic at first, but after just a few visits my chronic back pain was significantly reduced. I wish I had started sooner.", name: "Jennifer L." },
+  { text: "The whole family goes to Frey Clinic — from my kids to my parents. They treat everyone with the same care and attention. We're so grateful to have them in Napoleon.", name: "David R." },
+  { text: "Dr. Peters' acupuncture treatments have helped me manage my migraines better than anything else I've tried. I went from several migraines a month to almost none.", name: "Karen W." },
+  { text: "The staff is friendly, the office is clean, and the care is excellent. They always take the time to explain what they're doing and why. Five stars across the board.", name: "Tom B." },
+  { text: "I started coming in for neck pain and discovered that chiropractic care helps with so much more. My sleep has improved, my energy is up, and I just feel better overall.", name: "Lisa H." },
+  { text: "As a farmer, my body takes a beating. Regular visits to Frey Clinic keep me working without the constant aches and pains. They understand the demands of physical work.", name: "James K." },
+];
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Patient Testimonials | Frey Clinic of Chiropractic",
+  "description": "Read what patients are saying about their experience at Frey Clinic of Chiropractic in Napoleon, OH.",
+  "url": "https://www.freychiropractic.com/testimonials/"
+};
+---
+
+<BaseLayout
+  title="Testimonials"
+  description="Read what patients are saying about their experience at Frey Clinic of Chiropractic in Napoleon, OH."
+  schema={schema}
+>
+  <Header slot="header" />
+
+  <section class="page-header">
+    <div class="container">
+      <h1 class="reveal">What our patients say</h1>
+      <p class="reveal reveal-delay-1" style="max-width:36rem;">
+        We're grateful for the trust our patients place in us. Here's what some of them have shared about their experience.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container" style="max-width:48rem;">
+      <div class="reveal-stagger">
+        {testimonials.map(t => (
+          <div class="testimonial">
+            <p class="testimonial__text">{t.text}</p>
+            <p class="testimonial__name">{t.name}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="container reveal">
+      <h2>Experience the difference for yourself</h2>
+      <p>Join the families who trust Frey Clinic of Chiropractic with their health.</p>
+      <a href="/schedule/" class="btn">Schedule an Appointment</a>
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+  <SpineProgress slot="spine" />
+</BaseLayout>

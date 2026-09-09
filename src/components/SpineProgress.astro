@@ -1,0 +1,11 @@
+---
+// Spine progress indicator — vertebra segments that fill on scroll
+// Rendered on desktop only (CSS handles visibility)
+const segmentCount = 7;
+---
+
+<div class="spine-progress" aria-hidden="true">
+  {Array.from({ length: segmentCount }).map((_, i) => (
+    <div class="spine-segment" data-segment={i}></div>
+  ))}
+</div>
