@@ -6,19 +6,21 @@ const year = new Date().getFullYear();
   <div class="container">
     <div class="footer__grid">
       <div>
-        <p class="footer__heading">Frey Clinic of Chiropractic</p>
+        <a href="/" class="footer__logo" aria-label="Frey Clinic of Chiropractic – Home">
+          <img src="/src/assets/images/logo-header.webp" alt="Frey Clinic of Chiropractic" width="270" height="150" loading="lazy" />
+        </a>
         <p style="line-height:1.8; margin-bottom:var(--sp-4);">
           390 Independence Dr<br />
           Napoleon, OH 43545
         </p>
         <p>
-          <a href="tel:4195927966">(419) 592-7966</a>
+          <a href="tel:4195927966" class="footer__nav-link">(419) 592-7966</a>
         </p>
         <p style="margin-top:var(--sp-3);">
-          <a href="https://maps.app.goo.gl/QUrM6KDh1Ek4TdLj7/" target="_blank" rel="noopener">Get Directions</a>
+          <a href="https://maps.app.goo.gl/QUrM6KDh1Ek4TdLj7/" target="_blank" rel="noopener" class="footer__nav-link">Get Directions →</a>
         </p>
         <p style="margin-top:var(--sp-3);">
-          <a href="https://www.facebook.com/people/Frey-Clinic-of-Chiropractic-Doctors-Tim-and-Nathan-Frey-and-Chris-Peters/100057877410735/" target="_blank" rel="noopener nofollow" aria-label="Facebook">Facebook</a>
+          <a href="https://www.facebook.com/people/Frey-Clinic-of-Chiropractic-Doctors-Tim-and-Nathan-Frey-and-Chris-Peters/100057877410735/" target="_blank" rel="noopener nofollow" aria-label="Facebook" class="footer__nav-link">Facebook</a>
         </p>
       </div>
 
@@ -37,12 +39,12 @@ const year = new Date().getFullYear();
       <div>
         <p class="footer__heading">Navigation</p>
         <ul style="line-height:2.2; font-size:var(--text-sm);">
-          <li><a href="/">Home</a></li>
-          <li><a href="/about/">About</a></li>
-          <li><a href="/services/">Services</a></li>
-          <li><a href="/testimonials/">Testimonials</a></li>
-          <li><a href="/contact/">Contact</a></li>
-          <li><a href="/schedule/">Schedule</a></li>
+          <li><a href="/" class="footer__nav-link">Home</a></li>
+          <li><a href="/about/" class="footer__nav-link">About</a></li>
+          <li><a href="/services/" class="footer__nav-link">Services</a></li>
+          <li><a href="/testimonials/" class="footer__nav-link">Testimonials</a></li>
+          <li><a href="/contact/" class="footer__nav-link">Contact</a></li>
+          <li><a href="/schedule/" class="footer__nav-link">Schedule</a></li>
         </ul>
       </div>
     </div>

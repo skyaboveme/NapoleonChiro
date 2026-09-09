@@ -75,13 +75,13 @@ const schema = {
 };
 
 const services = [
-  { name: 'Chiropractic Care', href: '/services/chiropractic-care/' },
-  { name: 'Acupuncture', href: '/services/acupuncture/' },
-  { name: 'Massage Therapy', href: '/services/massage-therapy/' },
-  { name: 'ChiroThin Weight Loss', href: '/services/weight-loss/' },
-  { name: 'Wellness Care', href: '/services/wellness-care/' },
-  { name: 'Pediatric Chiropractic', href: '/services/chiropractic-care-kids/' },
-  { name: 'Prenatal Chiropractic', href: '/services/prenatal-chiropractic/' },
+  { name: 'Chiropractic Care', href: '/services/chiropractic-care/', desc: 'Gentle, effective spinal adjustments to restore alignment and support natural healing.', icon: '🦴' },
+  { name: 'Acupuncture', href: '/services/acupuncture/', desc: 'Traditional acupuncture to manage pain, reduce stress, and promote whole-body wellness.', icon: '📍' },
+  { name: 'Massage Therapy', href: '/services/massage-therapy/', desc: 'Therapeutic massage to relieve tension, improve circulation, and complement care.', icon: '🙌' },
+  { name: 'ChiroThin Weight Loss', href: '/services/weight-loss/', desc: 'A doctor-supervised weight loss program designed to help you reach your goals.', icon: '⚖️' },
+  { name: 'Wellness Care', href: '/services/wellness-care/', desc: 'Ongoing chiropractic maintenance to keep your body functioning at its best.', icon: '💚' },
+  { name: 'Pediatric Chiropractic', href: '/services/chiropractic-care-kids/', desc: 'Gentle, age-appropriate chiropractic care for children of all ages.', icon: '👶' },
+  { name: 'Prenatal Chiropractic', href: '/services/prenatal-chiropractic/', desc: 'Safe, supportive chiropractic care throughout pregnancy.', icon: '🤰' },
 ];
 
 const values = [
@@ -98,41 +98,48 @@ const values = [
 >
   <Header slot="header" />
 
-  <!-- Hero -->
+  <!-- Hero — cinematic -->
   <section class="hero" data-spine-section="0">
     <div class="hero__bg">
       <img src="/src/assets/images/team.webp" alt="Dr. Timothy Frey and Dr. Christopher Peters at Frey Clinic of Chiropractic in Napoleon, Ohio" width="703" height="600" />
     </div>
+    <div class="hero__overlay"></div>
     <div class="hero__content">
       <h1 class="reveal">
         Get Healthy.<br />Stay Healthy.
       </h1>
+      <span class="hero__accent-line reveal-delay-2"></span>
       <p class="reveal reveal-delay-1">
         Gentle, safe, and effective chiropractic care for your whole family in Napoleon, Ohio.
       </p>
-      <a href="/schedule/" class="btn reveal reveal-delay-2">Schedule an Appointment</a>
+      <a href="/schedule/" class="btn btn--arrow reveal reveal-delay-2">Schedule an Appointment</a>
+    </div>
+    <div class="hero__scroll-indicator">
+      <span>Scroll</span>
+      <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
     </div>
   </section>
 
-  <!-- Services -->
+  <!-- Services — card grid -->
   <section class="section" data-spine-section="1">
     <div class="container">
       <h2 class="reveal">What we do</h2>
       <hr class="rule rule--accent" />
-      <div class="service-list reveal-stagger">
+      <div class="service-cards reveal-stagger">
         {services.map(s => (
-          <div class="service-item">
-            <a href={s.href}>{s.name}</a>
-          </div>
+          <a href={s.href} class="service-card" style="text-decoration:none;">
+            <div class="service-card__icon">{s.icon}</div>
+            <p class="service-card__title">{s.name}</p>
+            <p class="service-card__desc">{s.desc}</p>
+            <span class="service-card__link">Learn more</span>
+          </a>
         ))}
       </div>
     </div>
   </section>
 
-  <hr class="rule container" />
-
   <!-- About intro -->
-  <section class="section" data-spine-section="2">
+  <section class="section" style="background-color:var(--white);" data-spine-section="2">
     <div class="container grid grid--sidebar">
       <div class="reveal">
         <img
@@ -141,6 +148,7 @@ const values = [
           width="703"
           height="600"
           loading="lazy"
+          class="img-elevated"
           style="width:100%; height:auto; filter:saturate(0.85);"
         />
       </div>
@@ -152,30 +160,27 @@ const values = [
         </p>
         <p><strong>Now offering <a href="/services/acupuncture/" class="link-draw">acupuncture</a>.</strong></p>
         <div style="display:flex; gap:var(--sp-4); flex-wrap:wrap; margin-top:var(--sp-6);">
-          <a href="/about/" class="btn">Meet Our Team</a>
+          <a href="/about/" class="btn btn--arrow">Meet Our Team</a>
           <a href="/testimonials/" class="btn btn--outline">Read Testimonials</a>
         </div>
       </div>
     </div>
   </section>
 
-  <hr class="rule container" />
-
-  <!-- Values -->
+  <!-- Values — card treatment -->
   <section class="section" data-spine-section="3">
     <div class="container grid grid--3 reveal-stagger">
       {values.map(v => (
-        <div>
-          <hr class="rule rule--accent" style="margin-bottom:var(--sp-5);" />
-          <h3 style="font-size:var(--text-xl); text-transform:lowercase;">{v.heading}</h3>
+        <div class="value-card">
+          <h3>{v.heading}</h3>
           <p style="margin-top:var(--sp-3);">{v.text}</p>
         </div>
       ))}
     </div>
   </section>
 
-  <!-- Conditions preview -->
-  <section class="section" style="background-color:var(--ink); color:var(--surface);" data-spine-section="4">
+  <!-- Conditions preview — dark section -->
+  <section class="conditions-section section" data-spine-section="4">
     <div class="container">
       <h2 class="reveal" style="color:var(--surface);">Conditions we treat</h2>
       <hr class="rule rule--accent" />
@@ -188,13 +193,13 @@ const values = [
           { name: 'Disc Injury', href: '/conditions/disc-injury/' },
           { name: 'Shoulder Pain', href: '/conditions/shoulder-pain/' },
         ].map(c => (
-          <a href={c.href} class="link-draw" style="font-family:var(--font-heading); font-size:var(--text-xl); color:var(--rule-light); padding-block:var(--sp-3); display:block; border-bottom:1px solid rgba(212,207,198,0.15);">
+          <a href={c.href} class="condition-link">
             {c.name}
           </a>
         ))}
       </div>
       <p style="margin-top:var(--sp-8); color:var(--rule-light);">
-        <a href="/contact/" style="color:var(--accent);">Contact us</a> to discuss how chiropractic care can help your specific condition.
+        <a href="/contact/" style="color:var(--accent);" class="link-draw">Contact us</a> to discuss how chiropractic care can help your specific condition.
       </p>
     </div>
   </section>
@@ -204,7 +209,7 @@ const values = [
     <div class="container reveal">
       <h2>There is no risk to see what we can do for you</h2>
       <p>Let us help you turn your health goals into reality.</p>
-      <a href="/schedule/" class="btn">Request an Appointment</a>
+      <a href="/schedule/" class="btn btn--arrow">Request an Appointment</a>
     </div>
   </section>
 
@@ -218,7 +223,7 @@ const values = [
           <p class="info-block__label">Address</p>
           <p class="info-block__value">
             390 Independence Dr<br />Napoleon, OH 43545<br />
-            <a href="https://maps.app.goo.gl/QUrM6KDh1Ek4TdLj7/" target="_blank" rel="noopener">Get Directions</a>
+            <a href="https://maps.app.goo.gl/QUrM6KDh1Ek4TdLj7/" target="_blank" rel="noopener" class="link-draw">Get Directions</a>
           </p>
         </div>
         <div class="info-block">

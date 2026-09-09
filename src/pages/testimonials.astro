@@ -34,6 +34,7 @@ const schema = {
   <section class="page-header">
     <div class="container">
       <h1 class="reveal">What our patients say</h1>
+      <span class="page-header__accent reveal"></span>
       <p class="reveal reveal-delay-1" style="max-width:36rem;">
         We're grateful for the trust our patients place in us. Here's what some of them have shared about their experience.
       </p>
@@ -41,8 +42,8 @@ const schema = {
   </section>
 
   <section class="section">
-    <div class="container" style="max-width:48rem;">
-      <div class="reveal-stagger">
+    <div class="container">
+      <div class="testimonial-grid reveal-stagger">
         {testimonials.map(t => (
           <div class="testimonial">
             <p class="testimonial__text">{t.text}</p>
@@ -57,7 +58,7 @@ const schema = {
     <div class="container reveal">
       <h2>Experience the difference for yourself</h2>
       <p>Join the families who trust Frey Clinic of Chiropractic with their health.</p>
-      <a href="/schedule/" class="btn">Schedule an Appointment</a>
+      <a href="/schedule/" class="btn btn--arrow">Schedule an Appointment</a>
     </div>
   </section>
 

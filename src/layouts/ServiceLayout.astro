@@ -8,9 +8,11 @@ interface Props {
   title: string;
   description: string;
   schemaType?: string;
+  heroImage?: string;
+  heroAlt?: string;
 }
 
-const { title, description, schemaType = 'Service' } = Astro.props;
+const { title, description, schemaType = 'Service', heroImage, heroAlt } = Astro.props;
 
 const schema = {
   "@context": "https://schema.org",
@@ -35,9 +37,15 @@ const schema = {
 <BaseLayout title={title} description={description} schema={schema}>
   <Header slot="header" />
 
-  <section class="page-header">
+  <section class={`page-header ${heroImage ? 'page-header--image' : ''}`}>
+    {heroImage && (
+      <div class="page-header__bg">
+        <img src={heroImage} alt={heroAlt || title} width="1400" height="600" />
+      </div>
+    )}
     <div class="container">
       <h1 class="reveal">{title}</h1>
+      <span class="page-header__accent reveal"></span>
     </div>
   </section>
 
@@ -53,7 +61,7 @@ const schema = {
     <div class="container reveal">
       <h2>Take the next step toward better health</h2>
       <p>Schedule your appointment at Frey Clinic of Chiropractic today.</p>
-      <a href="/schedule/" class="btn">Schedule an Appointment</a>
+      <a href="/schedule/" class="btn btn--arrow">Schedule an Appointment</a>
     </div>
   </section>
 
