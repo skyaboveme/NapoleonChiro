@@ -8,12 +8,16 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
+    "prepare": "astro build",
     "preview": "astro preview",
     "astro": "astro"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.4",
     "astro": "^7.3.2"
+  },
+  "devDependencies": {
+    "wrangler": "4.165.0"
   },
   "allowScripts": {
     "esbuild": true
