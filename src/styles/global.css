@@ -1246,3 +1246,40 @@ p:last-child {
 .img-elevated:hover {
   box-shadow: var(--shadow-lg);
 }
+
+.photo-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--sp-6);
+  margin-top: var(--sp-8);
+}
+
+.photo-card {
+  margin: 0;
+}
+
+.photo-card img {
+  width: 100%;
+  height: auto;
+  filter: saturate(0.85);
+}
+
+.photo-card figcaption {
+  margin-top: var(--sp-3);
+  font-family: var(--font-heading);
+  font-size: var(--text-lg);
+  line-height: 1.3;
+  color: var(--ink);
+}
+
+@media (min-width: 40rem) {
+  .photo-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 64rem) {
+  .photo-grid--team {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
