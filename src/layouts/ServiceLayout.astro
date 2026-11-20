@@ -10,9 +10,11 @@ interface Props {
   schemaType?: string;
   heroImage?: string;
   heroAlt?: string;
+  heroWidth?: number;
+  heroHeight?: number;
 }
 
-const { title, description, schemaType = 'Service', heroImage, heroAlt } = Astro.props;
+const { title, description, schemaType = 'Service', heroImage, heroAlt, heroWidth = 1400, heroHeight = 600 } = Astro.props;
 
 const schema = {
   "@context": "https://schema.org",
@@ -40,7 +42,7 @@ const schema = {
   <section class={`page-header ${heroImage ? 'page-header--image' : ''}`}>
     {heroImage && (
       <div class="page-header__bg">
-        <img src={heroImage} alt={heroAlt || title} width="1400" height="600" />
+        <img src={heroImage} alt={heroAlt || title} width={heroWidth} height={heroHeight} />
       </div>
     )}
     <div class="container">
