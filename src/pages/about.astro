@@ -31,7 +31,7 @@ const schema = {
   "@context": "https://schema.org",
   "@type": "WebPage",
   "name": "Meet the Doctors | Frey Clinic of Chiropractic",
-  "description": "Meet Dr. Timothy Frey and Dr. Christopher Peters, chiropractors serving Napoleon, OH and the surrounding Henry County communities.",
+  "description": "Meet Dr. Timothy Frey, Dr. Christopher Peters, and Dr. Evan Plott, chiropractors serving Napoleon, OH and the surrounding Henry County communities.",
   "url": "https://www.freychiropractic.com/about/",
   "isPartOf": { "@id": "https://www.freychiropractic.com/#website" },
   "mainEntity": [
@@ -48,6 +48,13 @@ const schema = {
       "jobTitle": "Doctor of Chiropractic",
       "worksFor": { "@id": "https://www.freychiropractic.com/#business" },
       "description": "Dr. Christopher Peters is a Doctor of Chiropractic at Frey Clinic of Chiropractic. He specializes in helping families in Napoleon, OH achieve better health through chiropractic care and acupuncture."
+    },
+    {
+      "@type": "Person",
+      "name": "Dr. Evan Plott",
+      "jobTitle": "Doctor of Chiropractic",
+      "worksFor": { "@id": "https://www.freychiropractic.com/#business" },
+      "description": "Dr. Plott grew up in Carey, Ohio, and earned his Doctor of Chiropractic degree from Palmer College of Chiropractic in Port Orange, Florida. He focuses on the Gonstead technique and serves Napoleon and the surrounding communities."
     }
   ]
 };
@@ -55,7 +62,7 @@ const schema = {
 
 <BaseLayout
   title="Meet the Doctors"
-  description="Meet Dr. Timothy Frey and Dr. Christopher Peters, chiropractors serving Napoleon, OH and the surrounding Henry County communities."
+  description="Meet Dr. Timothy Frey, Dr. Christopher Peters, and Dr. Evan Plott, chiropractors serving Napoleon, OH and the surrounding Henry County communities."
   schema={schema}
 >
   <Header slot="header" />
@@ -119,6 +126,46 @@ const schema = {
         </p>
         <p>
           Dr. Peters is dedicated to creating a comfortable, welcoming environment where patients feel at ease. He works closely with each patient to develop personalized treatment plans that address their specific concerns and health objectives.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule container" />
+
+  <section class="section">
+    <div class="container grid grid--sidebar">
+      <div class="reveal">
+        <img
+          src="/images/evan-plott.webp"
+          alt="Dr. Evan Plott"
+          width="1400"
+          height="1752"
+          loading="lazy"
+          class="img-elevated"
+          style="width:100%; height:auto; filter:saturate(0.85);"
+        />
+      </div>
+      <div class="reveal reveal-delay-1">
+        <h2>Dr. Evan Plott, DC</h2>
+        <hr class="rule rule--accent" style="margin-block:var(--sp-4);" />
+        <p>
+          Dr. Plott grew up in Carey, Ohio, and first became interested in chiropractic after injuring his back while weightlifting for football in high school. That experience sparked his curiosity about how chiropractic care could help people recover, move better, and return to the activities they enjoy.
+        </p>
+        <p>
+          He attended Bowling Green State University, where he completed his undergraduate degree with a pre-medical focus and a minor in chemistry. He then earned his Doctor of Chiropractic degree from Palmer College of Chiropractic in Port Orange, Florida.
+        </p>
+        <p>
+          Dr. Plott focuses on the Gonstead technique, a specific approach to chiropractic care that emphasizes thorough analysis and individualized adjustments. During his time at Palmer College of Chiropractic, he further developed his skills by attending weekend seminars in Florida, learning from experienced and respected Gonstead chiropractors.
+        </p>
+        <p>
+          He has also attended seminars in Mount Horeb, Wisconsin, and plans to continue pursuing advanced training there throughout his career to further develop his knowledge and skills in the Gonstead technique.
+        </p>
+        <p>
+          With his roots in Northwest Ohio, Dr. Plott is proud to serve Napoleon and the surrounding communities. He looks forward to building lasting relationships with his patients and helping them stay active and enjoy the activities that matter most to them.
+        </p>
+        <p>
+          Outside the office, he enjoys watching football, hiking, and spending time with his wife. He is also a member of St. Augustine Catholic Church in Napoleon, Ohio and values being part of the local community.
         </p>
       </div>
     </div>
