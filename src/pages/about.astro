@@ -5,12 +5,8 @@ import Footer from '../components/Footer.astro';
 import SpineProgress from '../components/SpineProgress.astro';
 
 const teamPhotos = [
-  { src: '/images/timothy-frey.webp', name: 'Timothy Frey', width: 1400, height: 1638 },
-  { src: '/images/christopher-peters.webp', name: 'Christopher Peters', width: 1400, height: 1742 },
   { src: '/images/betsy.webp', name: 'Betsy', width: 1400, height: 1712 },
-  { src: '/images/evan-plott.webp', name: 'Evan Plott', width: 1400, height: 1752 },
-  { src: '/images/evan-welcome.webp', name: 'Evan Plott', width: 1400, height: 1866 },
-  { src: '/images/frenchessica.webp', name: 'Frenchessica', width: 1400, height: 1638 },
+  { src: '/images/frenchessica.webp', name: 'Frenchessica', width: 860, height: 1030 },
   { src: '/images/jackie.webp', name: 'Jackie', width: 1400, height: 1626 },
   { src: '/images/mary.webp', name: 'Mary', width: 1400, height: 1662 },
   { src: '/images/robin.webp', name: 'Robin', width: 1400, height: 1676 },
@@ -19,10 +15,6 @@ const teamPhotos = [
 
 const clinicPhotos = [
   { src: '/images/clinic-7336.webp', alt: 'Frey Clinic of Chiropractic', width: 1800, height: 1034 },
-  { src: '/images/clinic-7337.webp', alt: 'Frey Clinic of Chiropractic', width: 1800, height: 1350 },
-  { src: '/images/clinic-7340.webp', alt: 'Frey Clinic of Chiropractic', width: 1800, height: 1156 },
-  { src: '/images/clinic-7348.webp', alt: 'Frey Chiropractic', width: 1600, height: 2134 },
-  { src: '/images/clinic-7357.webp', alt: 'Frey Chiropractic', width: 1800, height: 1350 },
   { src: '/images/clinic-7359.webp', alt: 'Our Family Helping Yours. Frey Chiropractic', width: 1800, height: 1350 },
   { src: '/images/clinic-7369.webp', alt: 'Frey Chiropractic', width: 1800, height: 1350 },
 ];
@@ -31,7 +23,7 @@ const schema = {
   "@context": "https://schema.org",
   "@type": "WebPage",
   "name": "Meet the Doctors | Frey Clinic of Chiropractic",
-  "description": "Meet Dr. Timothy Frey and Dr. Christopher Peters, chiropractors serving Napoleon, OH and the surrounding Henry County communities.",
+  "description": "Meet Dr. Timothy Frey, Dr. Christopher Peters, and Dr. Evan Plott, chiropractors serving Napoleon, OH and the surrounding Henry County communities.",
   "url": "https://www.freychiropractic.com/about/",
   "isPartOf": { "@id": "https://www.freychiropractic.com/#website" },
   "mainEntity": [
@@ -48,6 +40,12 @@ const schema = {
       "jobTitle": "Doctor of Chiropractic",
       "worksFor": { "@id": "https://www.freychiropractic.com/#business" },
       "description": "Dr. Christopher Peters is a Doctor of Chiropractic at Frey Clinic of Chiropractic. He specializes in helping families in Napoleon, OH achieve better health through chiropractic care and acupuncture."
+    },
+    {
+      "@type": "Person",
+      "name": "Dr. Evan Plott",
+      "jobTitle": "Doctor of Chiropractic",
+      "worksFor": { "@id": "https://www.freychiropractic.com/#business" }
     }
   ]
 };
@@ -55,7 +53,7 @@ const schema = {
 
 <BaseLayout
   title="Meet the Doctors"
-  description="Meet Dr. Timothy Frey and Dr. Christopher Peters, chiropractors serving Napoleon, OH and the surrounding Henry County communities."
+  description="Meet Dr. Timothy Frey, Dr. Christopher Peters, and Dr. Evan Plott, chiropractors serving Napoleon, OH and the surrounding Henry County communities."
   schema={schema}
 >
   <Header slot="header" />
@@ -121,6 +119,15 @@ const schema = {
           Dr. Peters is dedicated to creating a comfortable, welcoming environment where patients feel at ease. He works closely with each patient to develop personalized treatment plans that address their specific concerns and health objectives.
         </p>
       </div>
+    </div>
+  </section>
+
+  <hr class="rule container" />
+
+  <section class="section doctor-slot">
+    <div class="container">
+      <h2 class="reveal">Dr. Evan Plott, DC</h2>
+      <hr class="rule rule--accent" style="margin-block:var(--sp-4);" />
     </div>
   </section>
 

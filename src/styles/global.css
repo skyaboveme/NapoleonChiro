@@ -1264,6 +1264,28 @@ p:last-child {
   filter: saturate(0.85);
 }
 
+.home-office {
+  margin-bottom: var(--sp-8);
+}
+
+.home-office__copy {
+  max-width: 40rem;
+}
+
+.doctor-slot {
+  padding-block: 0 var(--sp-8);
+}
+
+.photo-grid--team .photo-card {
+  overflow: hidden;
+}
+
+.photo-grid--team .photo-card img {
+  aspect-ratio: 1400 / 1680;
+  object-fit: cover;
+  object-position: center 18%;
+}
+
 .photo-card figcaption {
   margin-top: var(--sp-3);
   font-family: var(--font-heading);
