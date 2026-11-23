@@ -202,6 +202,10 @@ p:last-child {
   grid-template-columns: 1fr;
 }
 
+.grid--office {
+  grid-template-columns: 1fr;
+}
+
 @media (min-width: 48rem) {
   .grid--2 {
     grid-template-columns: 1fr 1fr;
@@ -211,6 +215,10 @@ p:last-child {
   }
   .grid--sidebar {
     grid-template-columns: 1fr 1.2fr;
+  }
+  .grid--office {
+    grid-template-columns: 1.7fr 1fr;
+    align-items: center;
   }
 }
 
@@ -330,7 +338,7 @@ p:last-child {
 /* --- Hero — CINEMATIC upgrade --- */
 .hero {
   position: relative;
-  min-height: 85vh;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   overflow: hidden;
@@ -443,7 +451,7 @@ p:last-child {
 
 @media (min-width: 48rem) {
   .hero {
-    min-height: 90vh;
+    min-height: 100vh;
   }
   .hero h1 {
     font-size: var(--text-5xl);
@@ -1282,4 +1290,10 @@ p:last-child {
   .photo-grid--team {
     grid-template-columns: 1fr 1fr 1fr;
   }
+}
+
+.photo-grid--team .photo-card img {
+  aspect-ratio: 5 / 6;
+  object-fit: cover;
+  object-position: center 18%;
 }
